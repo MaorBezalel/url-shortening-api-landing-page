@@ -19,7 +19,7 @@ Welcome to the [URL Shortening API Landing Page](https://www.frontendmentor.io/c
 
 ## Built Using
 
-[![](https://skillicons.dev/icons?i=react,scss,javascript)](https://skillicons.dev)
+[![](https://skillicons.dev/icons?i=react,scss,javascript,nodejs)](https://skillicons.dev)
 
 ## Features
 
