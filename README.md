@@ -51,7 +51,7 @@ Welcome to the [URL Shortening API Landing Page](https://www.frontendmentor.io/c
 
 - **Frontend Mentor**: Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing this challenge and design assets.
 
-- **shrtcode API**: Many Thanks to the creators at [tibush Labs](https://tibush.com/) for providing the [shrtcode API](https://shrtco.de/), which enabled to seamlessly generate and manage shortened URLs in this project.
+- **shrtcode API**: Many Thanks to the creators at [tibush Labs](https://tibush.com/labs) for providing the [shrtcode API](https://shrtco.de/), which enabled to seamlessly generate and manage shortened URLs in this project.
 
 - **ui.dev Team**: Special thanks to the [ui.dev team](https://ui.dev/) for creating [useHooks](https://usehooks.com/), a collection of modern, server-safe React hooks. These hooks have greatly contributed to the development of this project.
 
