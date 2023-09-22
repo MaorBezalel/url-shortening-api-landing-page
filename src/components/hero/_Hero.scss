@@ -1,0 +1,219 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#hero-wrapper {
+    background-color: $clr-white;
+}
+
+.hero {
+    $self: ".hero";
+    
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+
+    &__text {
+        #{$self}__title {
+            font-size: $fs-8xl;
+        }
+    
+        #{$self}__description {
+            font-size: $fs-2xl;
+            margin-top: 1rem;
+        }
+    
+        #{$self}__btn {
+            font-size : $fs-xl;
+            margin-top: 3.5rem;
+            padding: 1rem 2.5rem;
+        }
+
+    }
+    
+    &__image {
+        position: relative;
+
+        img {
+            transform: translate(6rem, -1rem) scale(1.2);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    @include breakpoint('2xl') {
+        &__image {
+            img {
+                width: 100%;
+                transform: translateX(8rem) scale(1.2);
+            }
+        }
+    }
+
+    @include breakpoint('xl') {
+        $self: ".hero";
+
+        &__text {
+            #{$self}__title {
+                font-size: $fs-6xl + 0.47rem;
+            }
+
+            #{$self}__description {
+                font-size: $fs-xl;
+            }
+        }
+        
+        &__image {
+            img {
+                transform: translateX(8rem) scale(1.4);
+            }
+        }
+    }
+
+    @include breakpoint('lg') {
+        $self: ".hero";
+
+        justify-items: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40% 60%;
+        grid-template-areas: 
+            "image"
+            "text";
+        
+        &__text {
+            @include flexbox($direction: column, $justify: center, $align: center);
+            text-align: center;
+            grid-area: text;
+            
+            #{$self}__title {
+                font-size: $fs-7xl;
+            }
+
+            #{$self}__description {
+                font-size: $fs-2xl;
+                margin-top: 0.5rem;
+            }
+    
+            #{$self}__btn {
+                font-size : $fs-xl;
+                margin-top: 2.7rem;
+                padding: 1.2rem 4rem;
+            }    
+        }
+
+        &__image {
+            grid-area: image;
+
+            img {
+                transform: translateY(-1rem) scale(1);
+            }
+        }
+    }
+
+    @include breakpoint('md') {
+        $self: ".hero";
+
+        &__text {
+            margin-top: 2rem;
+
+            #{$self}__btn {
+                margin-top: 4rem;
+            }  
+        }
+        
+        &__image {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @include breakpoint('sm') {
+        $self: ".hero";
+
+        &__text {
+            margin-top: 3rem;
+            #{$self}__title {
+                font-size: $fs-6xl;
+            }
+
+            #{$self}__description {
+                font-size: $fs-xl;
+
+                br {
+                    display: none;
+                }
+            }
+
+            #{$self}__btn {
+                margin-top: 3rem;
+            }
+        }
+        
+        &__image {
+            img {
+                transform: translateX(2rem) scale(1.2);
+            }
+        }
+    }
+
+    @include breakpoint('xs') {
+        $self: ".hero";
+        display: grid;
+        justify-content: center;
+
+        &__text {
+            margin-top: 3rem;
+            #{$self}__title {
+                font-size: $fs-5xl;
+            }
+    
+            #{$self}__description {
+                font-size: $fs-lg; 
+            }
+
+            #{$self}__btn {
+                font-size: $fs-lg;
+                padding: 1rem 3rem;
+            }
+        }
+        
+        &__image {
+            img {
+                width: 375px;
+                transform: translate(4.5rem, -1rem) scale(1.4);
+            }
+        }
+    }
+
+    @include breakpoint('xxs') {
+        $self: ".hero";
+
+        &__text {
+            margin-top: 4rem;
+            #{$self}__title {
+                font-size: $fs-4xl + 0.5rem;
+
+                br {
+                    display: none;
+                }
+            }
+    
+            #{$self}__description {
+                font-size: $fs-base; 
+            }
+
+            #{$self}__btn {
+                font-size: $fs-base;
+                padding: 0.8rem 2.8rem;
+                margin-top: 2rem;
+            }
+        }
+
+        &__image {
+            img {
+                width: 100%;
+                transform: translate(4.8rem, -1rem) scale(1.5);
+            }
+        }
+    }
+}

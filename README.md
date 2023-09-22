@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Frontend Mentor - URL Shortening API Landing Page Solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Preview](#preview)
+- [Introduction](#introduction)
+- [Built Using](#built-using)
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
-In the project directory, you can run:
+![Shortly Landing Page Preview](./src/assets/design/desktop-preview.jpg)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Welcome to the [URL Shortening API Landing Page](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G) project, my solution to the Frontend Mentor challenge. This project was developed using React, Sass (SCSS), and JavaScript to integrate with the [shrtcode API](https://shrtco.de/), allowing users to create shortened URLs effortlessly. The user-friendly interface ensures easy URL shortening, error handling for empty input fields, and responsive design for optimal user experience. Enjoy seamless URL management with the ability to copy, delete, and limit up to 5 shortened links.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Built Using
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![](https://skillicons.dev/icons?i=react,scss,javascript)](https://skillicons.dev)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **URL Shortening**: Users can shorten any valid URL using the shrtcode API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Saved Shortened Links**: Shortened links are saved and displayed, even after refreshing the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Clipboard Copy**: Users can easily copy the shortened link to their clipboard with a single click.
 
-### `npm run eject`
+- **Error Handling**: The project provides error messages when the form is submitted with an empty input field.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Manage Shortened Links**: Users can delete the shortened links they created to keep their list organized.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Link Limit**: Users can have a maximum of 5 shortened links at a time. When attempting to create a new shortened link with 5 links already displayed, the oldest link will be automatically deleted.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Responsive Design**: The interface adapts to different screen sizes and devices for an optimal user experience.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Interactive Elements**: Hover and focus states are implemented for all interactive elements on the page.
 
-## Learn More
+## How to Use
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Access the live demo [here](https://maorbezalel.github.io/url-shortening-api-landing-page/).
+2. Enter a valid URL in the input field.
+3. Click the "Shorten It!" button to generate a shortened URL.
+4. The shortened link will appear below, and you can click the "Copy" button to copy it to your clipboard.
+5. Your shortened links will be saved and displayed even after refreshing the page.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgements
 
-### Code Splitting
+- **Frontend Mentor**: Thanks to [Frontend Mentor](https://www.frontendmentor.io/) for providing this challenge and design assets.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **shrtcode API**: Many Thanks to the creators at [tibush Labs](https://tibush.com/) for providing the [shrtcode API](https://shrtco.de/), which enabled to seamlessly generate and manage shortened URLs in this project.
 
-### Analyzing the Bundle Size
+- **ui.dev Team**: Special thanks to the [ui.dev team](https://ui.dev/) for creating [useHooks](https://usehooks.com/), a collection of modern, server-safe React hooks. These hooks have greatly contributed to the development of this project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This solution is based on a Frontend Mentor challenge and designs and is subject to the terms and conditions of the [Frontend Mentor License](https://www.frontendmentor.io/license).

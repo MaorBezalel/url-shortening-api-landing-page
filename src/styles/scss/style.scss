@@ -1,0 +1,109 @@
+// General Imports
+@forward 'theme';
+@forward 'utils';
+@forward 'animations';
+
+// Components Imports
+@forward '../../components/header/Header';
+@forward '../../components/hero/Hero';
+@forward '../../components/shorten-url-form/ShortenURLForm';
+@forward '../../components/highlights/Highlights';
+@forward '../../components/cta/Cta';
+@forward '../../components/footer/Footer';
+@forward '../../components/attribution/Attribution';
+
+// Uses
+@use './theme' as *;
+@use './utils' as *;
+
+
+// Styles
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    @include reset;
+    @include typography($size: $fs-lg, $weight: $fw-regular, $family: $ff-primary);
+    background-color: $clr-white;
+    line-height: calc(1em + 0.5rem);
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 0 $clr-white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $clr-dark-violet;
+        outline: 2px solid $clr-dark-violet;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @include reset;
+    @include typography($color: $clr-very-dark-violet, $weight: $fw-bold, $family: $ff-primary);
+    line-height: calc(1em + 0.5rem);
+}
+
+p {
+    @include reset;
+    @include typography($color: $clr-grayish-violet, $size: $fs-base, $weight: $fw-regular, $family: $ff-primary);
+    line-height: calc(1em + 0.5rem);
+}
+
+a {
+    @include reset;
+    @include typography($color: $clr-grayish-violet, $size: $fs-base, $weight: $fw-bold, $family: $ff-primary);
+    display: inline-block;
+    background: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-decoration: none;
+
+    &:hover {
+        color: $clr-dark-violet;
+    }
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+}
+
+menu, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    user-select: none;
+}
+
+a.btn {
+    @include reset;
+    @include typography($color: $clr-white, $size: $fs-base, $weight: $fw-bold, $family: $ff-primary);
+    background: $clr-cyan;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}

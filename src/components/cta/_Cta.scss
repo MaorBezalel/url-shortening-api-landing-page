@@ -1,0 +1,63 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#cta-wrapper {
+    background-color: $clr-dark-violet;
+    background-image: url("../../assets/images/cta/bg-boost-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include breakpoint('sm') {
+        background-image: url("../../assets/images/cta/bg-boost-mobile.svg");
+    }
+}
+
+.cta {
+    @include flexbox($direction: column, $justify: center, $align: center);
+    @include margin-vertically(4.5rem);
+    gap: 1.5rem;
+    
+
+    &__title {
+        color: $clr-white;
+        font-size: $fs-5xl;
+        text-align: center;
+    }
+
+    &__btn {
+        @include reset;
+        @include typography($color: $clr-white, $size: $fs-xl, $weight: $fw-bold, $family: $ff-primary);
+        background: $clr-cyan;
+        border: none;
+        border-radius: 2rem;
+        padding: 1rem 2.5rem;
+    
+        &:hover {
+            background-color: $clr-light-cyan;
+            color: $clr-white;
+        }
+    }
+
+    @include breakpoint('2xl') {
+        &__title {
+            font-size: $fs-4xl + 0.25rem;
+        }
+    }
+
+    @include breakpoint('md') {
+        &__title {
+            font-size: $fs-4xl;
+        }
+    }
+
+    @include breakpoint('sm') {
+        &__title {
+            font-size: $fs-3xl;
+        }
+
+        &__btn {
+            font-size : $fs-lg;
+        }
+    }
+}

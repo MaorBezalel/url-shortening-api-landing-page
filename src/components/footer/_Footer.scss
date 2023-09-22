@@ -1,0 +1,90 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#footer-wrapper {
+    background-color: $clr-very-dark-blue;
+}
+
+.footer {
+    $self: ".footer";
+
+    @include flexbox($direction: row, $justify: space-between, $align: flex-start);
+    @include padding-vertically($top: 4rem, $bottom: 6rem);
+    gap: 6rem;
+
+    &__nav {
+        @include flexbox($direction: row, $justify: flex-end, $align: flex-start);
+        width: 100%;
+        gap: 5rem;
+
+        #{$self}__menu {
+            @include flexbox($direction: column, $justify: center, $align: flex-start);
+            gap: 1.5rem;
+
+            &-title {
+                color: $clr-white;
+            }
+
+            &-links {
+                @include flexbox($direction: column, $justify: center, $align: flex-start);
+                gap: 0.5rem;
+
+                li>a {
+                    @include typography($color: $clr-gray, $size: $fs-sm, $weight: $fw-regular);
+
+                    &:hover {
+                        color: $clr-white;
+                    }
+                }
+            }
+        }
+    }
+
+    &__social-media {
+        @include flexbox($direction: row, $justify: center, $align: flex-start);
+        gap: 1.5rem;
+
+        a>svg {
+            fill: $clr-white;
+        }
+
+        a:hover svg {
+            fill: $clr-cyan;
+        }
+    }
+
+    @include breakpoint('xl') {
+        gap: 4rem;
+
+        &__nav {
+            gap: 4rem;
+        }
+    }
+
+    @include breakpoint('lg') {
+        $self: ".footer";
+
+        @include flexbox($direction: column, $justify: center, $align: center);
+        padding-bottom: 5rem;
+        gap: 3rem;
+
+        &__nav {
+            @include flexbox($direction: column, $justify: center, $align: center);
+            width: auto;
+            gap: 3rem;
+
+            #{$self}__menu {
+                @include flexbox($direction: column, $justify: center, $align: center);
+                gap: 1rem;
+
+                &-links {
+                    @include flexbox($direction: column, $justify: center, $align: center);
+                }
+            }
+        }
+    
+        &__social-media {
+            @include flexbox($direction: row, $justify: center, $align: center);
+        }
+    }
+}

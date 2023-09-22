@@ -1,0 +1,226 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#url-input-wrapper {
+    background-image: linear-gradient(
+        to bottom, 
+        $clr-white 0%, $clr-white 50%,
+        $clr-light-gray 50%, $clr-light-gray 100%
+    );
+}
+
+.url-input {
+    $self: ".url-input";
+
+    @include flexbox($direction: row, $justify: center, $align: center);
+    gap: 2rem;
+    background-color: $clr-dark-violet;
+    background-image: url('../../assets/images/shorten/bg-shorten-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.5rem;
+    padding: 4rem 5rem;
+
+    &__label {
+        @include flexbox($direction: column, $justify: center, $align: center);
+        width: 100%;
+        position: relative;
+        
+        #{$self}__field {
+            @include size($width: 100%, $height: 4.5rem);
+            @include typography($color: $clr-grayish-violet, $size: $fs-xl, $weight: $fw-regular, $family: $ff-primary);
+            @include padding-horizontally(2rem);
+            border-radius: 0.5rem;
+            border: 3px solid transparent;
+            outline: 0;
+
+            &:focus {
+                border: 3px solid $clr-cyan;
+            }
+        }
+
+        &.error--no-url {
+            #{$self}__field {
+                color: $clr-red;
+                border: 3px solid $clr-red;
+
+                &:focus {
+                    border: 3px solid $clr-red;
+                }
+
+                &::placeholder {
+                    color: $clr-red;
+                }
+            }
+
+            &::after {
+                content: 'Please add a link';
+                @include typography($color: $clr-red, $size: $fs-sm, $weight: $fw-regular, $family: $ff-primary);
+                @include position($position: absolute, $bottom: -2rem, $left: 0);
+                font-style: italic;
+            }
+        }
+
+        &.error--invalid-url {
+            @extend .error--no-url;
+
+            &::after {
+                content: 'Please add a valid link';
+            }
+        }
+    }
+
+    &__sumbit-btn {
+        @include reset;
+        @include typography($color: $clr-white, $size: $fs-xl, $weight: $fw-bold, $family: $ff-primary);
+        @include flexbox($justify: center, $align: center);
+        min-width: 13rem;
+        height: 4.5rem;
+        background: $clr-cyan;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.375rem 3.125rem;
+        white-space: nowrap;
+        cursor: pointer;
+        
+        &:has(.loading-circle) {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    
+        &:hover {
+            background-color: $clr-light-cyan;
+        }
+    }
+
+    @include breakpoint('xl') {
+        background-size: 100% 100%;
+    }
+
+    @include breakpoint('lg') {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem 2rem;
+
+        &__sumbit-btn {
+            width: 100%;
+            font-size: $fs-2xl !important;
+        }
+    }
+
+    @include breakpoint('sm') {
+        background-image: url('../../assets/images/shorten/bg-shorten-mobile.svg');
+        background-size: 75%;
+        background-position: top right;
+    }
+
+    @include breakpoint('xs') {
+        background-size: 75% 70%;
+    }
+}
+
+
+
+
+#url-output-wrapper {
+    background-color: $clr-light-gray;
+    padding-top: 1.5rem;
+}
+
+.url-output {
+    $self: ".url-output";
+
+    @include flexbox($direction: column, $justify: flex-start, $align: flex-start);
+    gap: 1.5rem;
+    padding: 0;
+
+    &__item {
+        @include flexbox($direction: row, $justify: flex-start, $align: center);
+        position: relative;
+
+        gap: 1.5rem;
+        background-color: $clr-white;
+        border-radius: 0.5rem;
+        padding: 1rem 2rem;
+        width: 100%;
+
+        #{$self}__original-url {
+            color: $clr-very-dark-violet;
+            font-size: $fs-xl;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #{$self}__shortened-url {
+            color: $clr-cyan;
+            font-size: $fs-xl;
+            white-space: nowrap;
+        }
+
+        #{$self}__copy-btn {
+            @include reset;
+            @include flexbox($justify: center, $align: center);
+            @include typography($color: $clr-white, $size: $fs-base, $weight: $fw-bold, $family: $ff-primary);
+            min-width: 7rem;
+            text-align: center;
+            height: 2.5rem;
+            background: $clr-cyan;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.375rem 2rem;
+            
+            &:hover {
+                background-color: $clr-light-cyan;
+            }
+
+            &.copied {
+                background-color: $clr-dark-violet;
+            }
+        }
+
+        #{$self}__remove-btn {
+            @include position($position: absolute, $top: -1rem, $right: -1rem);
+            opacity: 0; 
+
+            &:hover {
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            #{$self}__remove-btn {
+                opacity: 1;
+            }
+        }
+
+        hr {
+            display: none;
+        }
+    }
+
+    @include breakpoint('md') {
+        $self: ".url-output";
+
+        &__item {
+            @include flexbox($direction: column, $justify: flex-start, $align: flex-start);
+            gap: 1rem;
+            padding: 1rem 1rem;
+
+            hr {
+                display: block;
+                width: calc(100% + 2rem);
+                margin: 0px -1rem;
+            }
+
+            #{$self}__copy-btn {
+                align-self: stretch;
+                font-size: $fs-lg;
+                padding: 1.5rem 2rem;
+            }
+        }
+    }
+}

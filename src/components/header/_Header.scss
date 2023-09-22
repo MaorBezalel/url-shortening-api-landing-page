@@ -1,0 +1,132 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#header-wrapper {
+    background-color: $clr-white;
+}
+
+.header {
+    @include flexbox($direction: row, $justify: space-between, $align: center);
+    @include padding-vertically(2.5rem);
+    gap: 3.5rem;
+    position: relative;
+    z-index: 2;
+
+    &__menu {
+        @include flexbox($direction: row, $justify: space-between, $align: center);
+        gap: 2rem;
+    }
+
+    &__user {
+        @include flexbox($direction: row, $justify: flex-end, $align: center);
+        flex-grow: 1;
+        gap: 2.5rem;
+    }
+
+    @include breakpoint('xl') {
+        gap: 2.5rem;
+    }
+
+    @include breakpoint('lg') {
+        &__menu, &__user {
+            display: none;
+        }
+
+        .hamburger-toggle {
+            display: flex;
+        }
+    }
+}
+
+
+// Variables
+$bar-width: 2.5rem;
+$bar-height: 0.2rem;
+$bar-radius: 1rem;
+$bar-gap: 0.5rem;
+$sqrt-2: 1.41421356237;
+$x-width: calc(calc($bar-height * 3 + $bar-gap * 2) * $sqrt-2);
+
+// Styles
+label.hamburger-toggle {
+    display: none; // header breakpoint will change it to flex
+    flex-direction: column;
+    gap: $bar-gap;
+
+    cursor: pointer;
+
+    &::before, &>input, &::after {
+        @include size($width: $bar-width, $height: $bar-height);
+        content: '';
+        background-color: $clr-grayish-violet;
+        border-radius: $bar-radius;
+        transform-origin: left center;
+        transition:
+            opacity 200ms ease-in-out, width 200ms ease-in-out, 
+            rotate 200ms ease-in-out, translate 200ms ease-in-out;
+    }
+
+    &>input {
+        appearance: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        pointer-events: none;
+
+        &:checked {
+            opacity: 0;
+            width: 0;
+        }
+    }
+
+    &:has(input:checked)::before {
+        rotate: 45deg;
+        width: $x-width;
+        translate: 0 calc($bar-height / -2);
+    }
+    
+    &:has(input:checked)::after {
+        rotate: -45deg;
+        width: $x-width;
+        translate: 0 calc($bar-height / 2);
+    }
+}
+
+menu.hamburger-menu {
+    @include flexbox($direction: column, $justify: space-around, $align: center);
+    @include padding-vertically(1rem);
+    @include size(20rem, 25rem);
+    @include position-center-horizontally($top: 6rem);
+    z-index: 2;
+    background-color: $clr-dark-violet;
+    border-radius: 0.5rem;
+
+    a {
+        color: $clr-white;
+
+        &:hover {
+            color: $clr-cyan;
+        }
+    }
+
+    hr {
+        @include size(85%, 1px);
+        background-color: $clr-grayish-violet;
+        color: $clr-grayish-violet;
+        border: none;
+        opacity: 0.3;
+    }
+
+    .btn {
+        width: 15rem;
+        text-align: center;
+
+        &:hover {
+            color: $clr-white;
+        }
+    }
+
+    &.default {
+        visibility: hidden;
+    }
+}

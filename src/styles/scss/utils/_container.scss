@@ -1,0 +1,67 @@
+@use './helpers' as *;
+
+.container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.section {
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+}
+
+/* 2xl */
+@include breakpoint('2xl') {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* xl */
+@include breakpoint('xl') {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+/* lg */
+@include breakpoint('lg') {
+    .container {
+        max-width: 768px;
+    }
+}
+
+/* md */
+@include breakpoint('md') {
+    .container {
+        max-width: 640px;
+    }
+
+    .section {
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+    }
+}
+
+/* sm */
+@include breakpoint('sm') {
+    .container {
+        max-width: 475px;
+    }
+}
+
+/* xs */
+@include breakpoint('xs') {
+    .container {
+        max-width: 375px;
+    }
+}
+
+@include breakpoint('xxs') {
+    .container {
+        width: 100%;
+    }
+}

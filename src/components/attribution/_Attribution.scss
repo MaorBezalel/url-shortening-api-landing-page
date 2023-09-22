@@ -1,0 +1,27 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+.attribution {
+    position: fixed;
+    z-index: 9;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 5px;
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: $fs-xs;
+    display: block;
+    letter-spacing: 0.7px;
+
+    a {
+        color: $clr-dark-violet;
+        text-decoration: none;
+        font-size: $fs-sm;
+
+        &:hover {
+            filter: brightness(2);
+        }
+    }
+}

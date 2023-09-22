@@ -1,0 +1,212 @@
+@use '../../styles/scss/theme' as *;
+@use '../../styles/scss/utils' as *;
+
+#highlights-wrapper {
+    background-color: $clr-light-gray;
+}
+
+.highlights {
+    $self: ".highlights";
+
+    @include flexbox($direction: column, $justify: center, $align: center);
+    gap: 5rem;
+
+    &__header {
+        @include reset;
+        @include flexbox($direction: column, $justify: center, $align: center);
+        gap: 1rem;
+        text-align: center;
+
+        #{$self}__title {
+            font-size: $fs-5xl;
+        }
+
+        #{$self}__description {
+            font-size: $fs-lg;
+        }
+    }
+
+    &__cards {
+        @include flexbox($direction: row, $justify: center, $align: flex-start);
+        gap: 6rem;
+        position: relative;
+
+        #{$self}__card {
+            @include flexbox($direction: column, $justify: center, $align: flex-start);
+            gap: 1rem;
+            background-color: $clr-white;
+            border-radius: 0.5rem;
+            padding: 5.313rem 5.2rem 3rem 2rem;
+            position: relative;
+
+            &-icon {
+                @include size-square(5.5rem);
+                @include flexbox($justify: center, $align: center);
+                @include position($position: absolute, $top: -3rem);
+                padding: 1.4rem;
+                border-radius: 50%;
+                background-color: $clr-dark-violet;
+            }
+
+            &-title {
+                font-size: $fs-3xl - 0.15rem;
+            }
+
+            &-description {
+                font-size: $fs-base;
+            }
+
+            &:nth-child(3) {
+                margin-top: 3rem;
+            }
+    
+            &:nth-child(4) {
+                margin-top: 6rem;
+            }
+        }
+
+        hr {
+            @include position($position: absolute, $top: 12.5rem, $right: 2.5rem, $left: 2.5rem);
+            @include margin-vertically(1rem);
+            border-top: 8px solid $clr-cyan;
+        }
+    }
+    
+    @include breakpoint('2xl') {
+        $self: ".highlights";
+
+        &__header {
+            #{$self}__title {
+                font-size: $fs-4xl + 0.25rem; 
+            }
+        }
+
+        &__cards {
+            #{$self}__card {
+                padding-right: 3rem;
+
+                &-title {
+                    font-size: $fs-2xl;
+                }
+    
+                &-description {
+                    font-size: $fs-sm + 0.1rem;
+                }
+            }
+        }
+    }
+
+    @include breakpoint('xl') {
+        $self: ".highlights";
+
+        &__cards {
+            #{$self}__card {
+                @include padding-horizontally(1.3rem);
+
+                &-title {
+                    font-size: $fs-xl;
+                }
+
+                &-description {
+                    font-size: $fs-sm;
+                }
+            }
+        }
+    }
+
+    @include breakpoint('lg') {
+        $self: ".highlights";
+
+        &__cards {
+            @include flexbox($direction: column, $justify: center, $align: center);
+            @include margin-horizontally(10rem);
+            gap: 6rem;
+
+            #{$self}__card {
+                @include flexbox($direction: column, $justify: center, $align: center);
+                @include padding-horizontally(4rem);
+                @include padding-vertically($top: 4rem, $bottom: 3rem);
+                text-align: center;
+
+                &:nth-child(3) {
+                    margin-top: auto;
+                }
+        
+                &:nth-child(4) {
+                    margin-top: auto;
+                }
+            }
+        }
+
+        hr {
+            bottom: 8rem;
+            top: auto;
+            right: 0;
+            left: 0;
+            width: 0.5rem;
+            border: 0;
+            border-top: 35.625rem solid $clr-cyan;
+        }
+    }
+
+    @include breakpoint('md') {
+        $self: ".highlights";
+
+        &__header {
+            #{$self}__title {
+                font-size: $fs-4xl;
+            }
+
+            #{$self}__description {
+                font-size: $fs-base;
+            }
+        }
+
+        &__cards {
+            @include margin-horizontally(5rem);
+
+            #{$self}__card {
+                @include padding-horizontally(2rem);
+                padding-bottom: 2rem;
+                text-align: center;
+
+                &:nth-child(3) {
+                    margin-top: auto;
+                }
+        
+                &:nth-child(4) {
+                    margin-top: auto;
+                }
+            }
+        }
+
+        hr {
+            bottom: 10rem;
+        }
+    }
+
+    @include breakpoint('sm') {
+        $self: ".highlights";
+
+        &__header {
+            #{$self}__title {
+                font-size: $fs-3xl;
+            }
+
+            #{$self}__description {
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        &__cards {
+            @include margin-horizontally(3rem);
+
+            #{$self}__card {
+                @include padding-horizontally(1.4rem);
+                padding-bottom: 1.5rem;
+            }
+        }
+    }
+}
