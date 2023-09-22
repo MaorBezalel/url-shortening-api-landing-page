@@ -19,7 +19,6 @@ export default function App() {
       <Cta/>
     </main>
     <Footer/>
-    <Attribution/>
     </>
   );
 }
