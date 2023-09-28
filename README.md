@@ -10,6 +10,8 @@
 - [Acknowledgements](#acknowledgements)
 - [License](#license)
 
+## Preview
+
 ![Shortly Landing Page Preview](./src/assets/design/desktop-preview.jpg)
 
 ## Introduction
