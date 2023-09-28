@@ -24,4 +24,14 @@
             filter: brightness(2);
         }
     }
+
+    br {
+        display: none;
+    }
+
+    @include breakpoint('xs') {
+        br {
+            display: inline;
+        }
+    }
 }

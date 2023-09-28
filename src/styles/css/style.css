@@ -1117,6 +1117,14 @@ menu.hamburger-menu.default {
 .attribution a:hover {
   filter: brightness(2);
 }
+.attribution br {
+  display: none;
+}
+@media (max-width: 475px) {
+  .attribution br {
+    display: inline;
+  }
+}
 
 *,
 *::before,
@@ -1146,6 +1154,10 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: hsl(257, 27%, 26%);
   outline: 2px solid hsl(257, 27%, 26%);
+}
+
+#root {
+  overflow: hidden;
 }
 
 main {
